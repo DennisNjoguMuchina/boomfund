@@ -376,6 +376,22 @@
             margin-top: 18px
         }
 
+        .audience-selector{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 24px}
+        .audience-choice{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 15px;border:1px solid rgba(255,255,255,.32);border-radius:12px;color:#fff;font-size:14px;font-weight:700;background:rgba(255,255,255,.07);transition:background .18s ease,border-color .18s ease}
+        .audience-choice:hover,.audience-choice:focus-visible{background:rgba(199,161,54,.18);border-color:var(--bf-gold-light)}
+        .fee-estimator{margin-top:34px;padding:26px;background:#fff;color:var(--bf-ink-2);border:1px solid var(--bf-line);border-radius:var(--r-xl);box-shadow:var(--sh-2)}
+        .fee-estimator h3{font-size:24px;margin-bottom:8px}.fee-estimator p{font-size:14px;color:var(--bf-ink-3)}
+        .estimator-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+        .fee-estimator label{display:block;font-size:14px;font-weight:700;color:var(--bf-ink);margin-bottom:6px}
+        .fee-estimator input,.fee-estimator select{width:100%;min-height:48px;padding:11px 12px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;color:var(--bf-ink);font:inherit}
+        .estimator-results{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+        .estimator-result{padding:14px;border-radius:12px;background:var(--bf-navy-50);border:1px solid var(--bf-line)}
+        .estimator-result span{display:block;font-size:12px;color:var(--bf-ink-3)}.estimator-result strong{display:block;font-size:19px;color:var(--bf-navy);margin-top:4px}
+        .illustrative-note{margin-top:14px;padding:12px;border-radius:10px;background:var(--bf-gold-50);font-size:13px!important;color:var(--bf-ink-2)!important}
+        .funding-partner{margin-top:22px;padding:20px;border-radius:14px;border:1px solid var(--bf-line);background:#fff;color:var(--bf-ink-2)}
+        .funding-partner strong{color:var(--bf-navy);font-size:21px}
+        @media(max-width:600px){.estimator-grid,.estimator-results{grid-template-columns:1fr}.fee-estimator{padding:18px}}
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
         /* ============================================================
    HERO
    ============================================================ */
@@ -1608,6 +1624,11 @@
                 <div>
                     <span class="pill"><span class="dot"></span>Built for Kenya</span>
                     <h1>School fees paid on time.<br><span class="gold">Every term.</span></h1>
+                    <div class="audience-selector" aria-label="Choose your audience">
+                        <a class="audience-choice" href="#who" data-audience="parent">I'm a parent</a>
+                        <a class="audience-choice" href="#who" data-audience="school">I'm a school</a>
+                        <a class="audience-choice" href="#who" data-audience="lender">I'm a lender or telco</a>
+                    </div>
                     <p class="sub">
                         BoomFund finances school fees and collects them back. The school is paid up front so
                         learning is never interrupted. The parent repays in instalments over the term through
@@ -1702,62 +1723,7 @@
     </section>
 
     <!-- ================= THE GAP ================= -->
-    <section class="gap-sec" id="gap">
-        <div class="wrap">
-            <div class="gap-grid">
-                <div>
-                    <span class="eyebrow">The problem</span>
-                    <h2 class="h2">Fees are due in one lump sum. Income arrives in instalments.</h2>
-                    <p class="lead">
-                        Across low- and middle-income countries there is a USD 36 billion education financing gap.
-                        More than two thirds of it (USD 26.4 billion) is not schools needing capital. It is families
-                        needing a way to pay tuition that matches how they earn.
-                    </p>
-                    <p class="lead">
-                        The mismatch is structural. Term fees fall due on a single day; a market trader, a boda rider
-                        or a smallholder farmer earns daily or seasonally. Research from Opportunity International's
-                        EduFinance programme found families at partner schools spend up to 30% of their income on
-                        tuition: a burden that pushes learners out of class and leaves schools chasing arrears
-                        instead of teaching.
-                    </p>
-
-                    <blockquote class="quote">
-                        Ten children arrive at the school gate and there are four desks. Multiply that across the
-                        world and you have, in EduFinance's words, “the reality for 244 million children worldwide
-                        who are out of school.”
-                        <cite>Andrew McCusker, Global Head of Opportunity, EduFinance</cite>
-                    </blockquote>
-
-                    <p class="src">
-                        Figures from Oikocredit and Opportunity International's education finance partnership:
-                        <a href="https://www.oikocredit.org/stories/oikocredit-and-opportunity-international-partnership/"
-                            target="_blank" rel="noopener">read the study</a>.
-                    </p>
-                </div>
-
-                <div class="gap-figs">
-                    <div class="fig hi">
-                        <div class="n">33%</div>
-                        <div class="l">Of school-aged children in lower-income countries are out of school, over ten
-                            times the rate in high-income countries</div>
-                    </div>
-                    <div class="fig">
-                        <div class="n">9%</div>
-                        <div class="l">Increase in hourly earnings for each additional year of schooling</div>
-                    </div>
-                    <div class="fig">
-                        <div class="n">USD 10.1bn</div>
-                        <div class="l">Needed separately for school improvement lending to affordable non-state schools
-                        </div>
-                    </div>
-                    <div class="fig">
-                        <div class="n">600m</div>
-                        <div class="l">Children in school but not meeting basic academic standards</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- ================= HOW IT WORKS ================= -->
     <section id="how">
@@ -1897,7 +1863,31 @@
                 </div>
             </div>
         </div>
-    </section>
+     
+            <div class="fee-estimator" id="fee-estimator">
+                <h3>Fee estimator</h3>
+                <p>Explore an illustrative repayment amount before you apply.</p>
+                <div class="estimator-grid">
+                    <div><label for="feeAmount">Term fees (KES)</label><input id="feeAmount" name="feeAmount" type="text" inputmode="numeric" autocomplete="off" value="48000" aria-describedby="feeError"></div>
+                    <div><label for="feeMonths">Number of instalments</label><select id="feeMonths"><option value="2">2 instalments</option><option value="3">3 instalments</option><option value="4" selected>4 instalments</option></select></div>
+                    <div><label for="feeFrequency">Payment frequency</label><select id="feeFrequency"><option value="monthly" selected>Monthly</option><option value="weekly">Weekly</option></select></div>
+                </div>
+                <p id="feeError" role="status" aria-live="polite"></p>
+                <div class="estimator-results" aria-live="polite" aria-atomic="true">
+                    <div class="estimator-result"><span>Each instalment</span><strong id="feeInstalment">KES 12,000</strong></div>
+                    <div class="estimator-result"><span>Processing fee</span><strong id="feeProcessing">KES 0</strong></div>
+                    <div class="estimator-result"><span>Total repayable</span><strong id="feeTotal">KES 48,000</strong></div>
+                    <div class="estimator-result"><span>Instalments</span><strong id="feeCount">4 monthly</strong></div>
+                </div>
+                <p class="illustrative-note"><strong>Illustrative only.</strong> This demo uses a 0% placeholder processing fee. Final amounts are set by the licensed lender and shown before you accept. Do not treat this as a loan offer.</p>
+                <a class="btn btn-gold" href="#contact" data-audience="parent" style="margin-top:16px">Check my limit</a>
+            </div>
+            <div class="funding-partner" aria-labelledby="fundingPartnerTitle">
+                <span class="eyebrow">Who funds your loan</span>
+                <h3 id="fundingPartnerTitle">ABSA</h3>
+                <p>ABSA is identified as the lending partner for this demo. BoomFund provides the technology platform; the lender sets and discloses the applicable loan terms.</p>
+                <p style="font-size:13px;margin-top:10px">Lender licence/reference: <em>Pending confirmation from management.</em></p>
+            </div></section>
 
     <!-- ================= WHO WE SERVE ================= -->
     <section id="who">
@@ -1919,7 +1909,7 @@
             </div>
 
             <!-- Parents -->
-            <div class="panel active" id="p-parents" role="tabpanel" aria-labelledby="t-parents">
+            <div class="panel active" id="parents" role="tabpanel" aria-labelledby="t-parents">
                 <div class="panel-grid">
                     <div>
                         <div class="ico gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1973,7 +1963,7 @@
             </div>
 
             <!-- Schools -->
-            <div class="panel" id="p-schools" role="tabpanel" aria-labelledby="t-schools" hidden>
+            <div class="panel" id="schools" role="tabpanel" aria-labelledby="t-schools" hidden>
                 <div class="panel-grid">
                     <div>
                         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -2026,7 +2016,7 @@
             </div>
 
             <!-- Partners -->
-            <div class="panel" id="p-partners" role="tabpanel" aria-labelledby="t-partners" hidden>
+            <div class="panel" id="lenders" role="tabpanel" aria-labelledby="t-partners" hidden>
                 <div class="panel-grid">
                     <div>
                         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -2078,6 +2068,63 @@
                                 </svg></span><span><b>Integrates with your channel.</b> Originate from your own app or
                                 branch network and let BoomFund handle disbursement, servicing and collection behind
                                 it.</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gap-sec" id="gap">
+        <div class="wrap">
+            <div class="gap-grid">
+                <div>
+                    <span class="eyebrow">The problem</span>
+                    <h2 class="h2">Fees are due in one lump sum. Income arrives in instalments.</h2>
+                    <p class="lead">
+                        Across low- and middle-income countries there is a USD 36 billion education financing gap.
+                        More than two thirds of it (USD 26.4 billion) is not schools needing capital. It is families
+                        needing a way to pay tuition that matches how they earn.
+                    </p>
+                    <p class="lead">
+                        The mismatch is structural. Term fees fall due on a single day; a market trader, a boda rider
+                        or a smallholder farmer earns daily or seasonally. Research from Opportunity International's
+                        EduFinance programme found families at partner schools spend up to 30% of their income on
+                        tuition: a burden that pushes learners out of class and leaves schools chasing arrears
+                        instead of teaching.
+                    </p>
+
+                    <blockquote class="quote">
+                        Ten children arrive at the school gate and there are four desks. Multiply that across the
+                        world and you have, in EduFinance's words, “the reality for 244 million children worldwide
+                        who are out of school.”
+                        <cite>Andrew McCusker, Global Head of Opportunity, EduFinance</cite>
+                    </blockquote>
+
+                    <p class="src">
+                        Figures from Oikocredit and Opportunity International's education finance partnership:
+                        <a href="https://www.oikocredit.org/stories/oikocredit-and-opportunity-international-partnership/"
+                            target="_blank" rel="noopener">read the study</a>.
+                    </p>
+                </div>
+
+                <div class="gap-figs">
+                    <div class="fig hi">
+                        <div class="n">33%</div>
+                        <div class="l">Of school-aged children in lower-income countries are out of school, over ten
+                            times the rate in high-income countries</div>
+                    </div>
+                    <div class="fig">
+                        <div class="n">9%</div>
+                        <div class="l">Increase in hourly earnings for each additional year of schooling</div>
+                    </div>
+                    <div class="fig">
+                        <div class="n">USD 10.1bn</div>
+                        <div class="l">Needed separately for school improvement lending to affordable non-state schools
+                        </div>
+                    </div>
+                    <div class="fig">
+                        <div class="n">600m</div>
+                        <div class="l">Children in school but not meeting basic academic standards</div>
                     </div>
                 </div>
             </div>
@@ -2445,10 +2492,10 @@
                 <div>
                     <h5>Who we serve</h5>
                     <ul>
-                        <li><a href="#who">Parents</a></li>
-                        <li><a href="#who">Schools</a></li>
-                        <li><a href="#who">Banks &amp; MFIs</a></li>
-                        <li><a href="#who">Telcos &amp; partners</a></li>
+                        <li><a href="#parents">Parents</a></li>
+                        <li><a href="#schools">Schools</a></li>
+                        <li><a href="#lenders">Banks &amp; MFIs</a></li>
+                        <li><a href="#lenders">Telcos &amp; partners</a></li>
                     </ul>
                 </div>
                 <div>
@@ -2474,9 +2521,9 @@
             <div class="f-bottom">
                 <span>© <span id="yr">2026</span> BoomFund. All rights reserved.</span>
                 <nav>
-                    <a href="#">Privacy policy</a>
-                    <a href="#">Terms &amp; conditions</a>
-                    <a href="#">Complaints</a>
+                    <a href="privacy.html">Privacy policy</a>
+                    <a href="terms.html">Terms &amp; conditions</a>
+                    <a href="complaints.html">Complaints</a>
                 </nav>
             </div>
         </div>
@@ -2485,6 +2532,51 @@
     <script>
         (function () {
             "use strict";
+
+            /* ---------- site configuration: management must confirm before production ---------- */
+            var siteConfig = { lenderName: 'ABSA', lenderLicenseReference: '', estimator: { minAmount: 1000, maxAmount: 1000000, processingFeeRate: 0, instalmentOptions: [2, 3, 4] } }; // PLACEHOLDER: confirm licence and lender-approved fees.
+            /* ---------- fee estimator (illustrative placeholder values) ---------- */
+            var feeAmount = document.getElementById('feeAmount');
+            var feeMonths = document.getElementById('feeMonths');
+            var feeFrequency = document.getElementById('feeFrequency');
+            var feeError = document.getElementById('feeError');
+            var money = function (n) { return new Intl.NumberFormat('en-KE', { maximumFractionDigits: 0 }).format(n); };
+            var updateEstimator = function () {
+                var raw = feeAmount.value.replace(/[^0-9]/g, '');
+                var amount = Number(raw || 0);
+                if (raw) feeAmount.value = money(amount);
+                if (!amount || amount < siteConfig.estimator.minAmount || amount > siteConfig.estimator.maxAmount) {
+                    feeError.textContent = 'Enter an amount between KES 1,000 and KES 1,000,000.';
+                    return;
+                }
+                feeError.textContent = '';
+                var count = Number(feeMonths.value);
+                var processingFeeRate = siteConfig.estimator.processingFeeRate;
+                var fee = Math.round(amount * processingFeeRate);
+                var total = amount + fee;
+                var instalment = Math.ceil(total / count);
+                document.getElementById('feeInstalment').textContent = 'KES ' + money(instalment);
+                document.getElementById('feeProcessing').textContent = 'KES ' + money(fee);
+                document.getElementById('feeTotal').textContent = 'KES ' + money(total);
+                document.getElementById('feeCount').textContent = count + ' ' + feeFrequency.value;
+            };
+            [feeAmount, feeMonths, feeFrequency].forEach(function (el) { el.addEventListener('input', updateEstimator); el.addEventListener('change', updateEstimator); });
+            updateEstimator();
+            document.querySelectorAll('[data-audience]').forEach(function (choice) {
+                choice.addEventListener('click', function () {
+                    var audience = choice.getAttribute('data-audience');
+                    var targetTab = audience === 'parent' ? document.getElementById('t-parents') : audience === 'school' ? document.getElementById('t-schools') : document.getElementById('t-partners');
+                    if (targetTab) targetTab.click();
+                    var frame = document.querySelector('.form-embed iframe');
+                    if (frame && audience) frame.setAttribute('title', 'BoomFund contact form — selected audience: ' + audience);
+                    var amountInput = document.getElementById('feeAmount');
+                    if (amountInput && audience === 'parent') {
+                        var hiddenAmount = document.getElementById('feeAmountCarry');
+                        if (!hiddenAmount) { hiddenAmount = document.createElement('input'); hiddenAmount.type = 'hidden'; hiddenAmount.id = 'feeAmountCarry'; hiddenAmount.name = 'fee_amount_illustrative'; document.querySelector('.form-embed').appendChild(hiddenAmount); }
+                        hiddenAmount.value = amountInput.value.replace(/[^0-9]/g, '');
+                    }
+                });
+            });
 
             /* ---------- year ---------- */
             document.getElementById('yr').textContent = new Date().getFullYear();
