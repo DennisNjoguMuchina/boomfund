@@ -2533,6 +2533,8 @@
         (function () {
             "use strict";
 
+            /* ---------- site configuration: management must confirm before production ---------- */
+            var siteConfig = { lenderName: 'ABSA', lenderLicenseReference: '', estimator: { minAmount: 1000, maxAmount: 1000000, processingFeeRate: 0, instalmentOptions: [2, 3, 4] } }; // PLACEHOLDER: confirm licence and lender-approved fees.
             /* ---------- fee estimator (illustrative placeholder values) ---------- */
             var feeAmount = document.getElementById('feeAmount');
             var feeMonths = document.getElementById('feeMonths');
@@ -2543,13 +2545,13 @@
                 var raw = feeAmount.value.replace(/[^0-9]/g, '');
                 var amount = Number(raw || 0);
                 if (raw) feeAmount.value = money(amount);
-                if (!amount || amount < 1000 || amount > 1000000) {
+                if (!amount || amount < siteConfig.estimator.minAmount || amount > siteConfig.estimator.maxAmount) {
                     feeError.textContent = 'Enter an amount between KES 1,000 and KES 1,000,000.';
                     return;
                 }
                 feeError.textContent = '';
                 var count = Number(feeMonths.value);
-                var processingFeeRate = 0; // TODO: replace with lender-approved fee parameters.
+                var processingFeeRate = siteConfig.estimator.processingFeeRate;
                 var fee = Math.round(amount * processingFeeRate);
                 var total = amount + fee;
                 var instalment = Math.ceil(total / count);
